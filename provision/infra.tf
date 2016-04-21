@@ -19,7 +19,7 @@ resource "aws_key_pair" "auth" {
 }
 
 resource "aws_security_group" "default" {
-  name = "uber-securiy"
+  name = "mega-securiy"
 
   ingress {
     from_port   = 22
