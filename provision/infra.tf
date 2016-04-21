@@ -1,13 +1,16 @@
-variable "public_key_path" {
-  default = "~/.ssh/terraform.pub"
+variable "access_key" {}
+variable "secret_key" {}
+variable "region" {}
+
+provider "aws" {
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
+  region = "${var.region}"
 }
 
-resource "terraform_remote_state" "remote_state" {
-    backend = "s3"
-    config {
-        bucket = "terraform-state-prod"
-        key = "network/terraform.tfstate"
-    }
+
+variable "public_key_path" {
+  default = "~/.ssh/terraform.pub"
 }
 
 resource "aws_key_pair" "auth" {
