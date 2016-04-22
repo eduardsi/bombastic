@@ -51,7 +51,7 @@ resource "aws_instance" "webapp" {
     provisioner "local-exec" {
         command = "echo ${self.public_ip} > publicIp.txt"
     }
-    count = 3
+    count = 4
     availability_zone = "${lookup(var.webappAvailabilityZones, count.index)}"
 }
 
